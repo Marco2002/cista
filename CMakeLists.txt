@@ -48,7 +48,8 @@ option(CISTA_GENERATE_TO_TUPLE "generate include/cista/reflection/to_tuple.h" OF
 option(CISTA_USE_MIMALLOC "compile with mimalloc support" OFF)
 set(CISTA_HASH "FNV1A" CACHE STRING "Options: FNV1A XXH3 WYHASH WYHASH_FASTEST")
 
-add_library(cista INTERFACE)
+add_library(cista INTERFACE
+        include/cista/containers/rtree.h)
 if (CISTA_HASH STREQUAL "XXH3")
   add_subdirectory(tools/xxh3)
   target_link_libraries(cista INTERFACE xxh3)
